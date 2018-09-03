@@ -23,7 +23,9 @@ class DynamicConnectivityAlgorithmsTest {
                 Arguments.of((IntFunction<?>)WeightedQuickUnionAlgorithm::new, "WeightedQuickUnionAlgorithm"),
                 Arguments.of((IntFunction<?>)WeightedQuickUnionOOPAlgorithm::new, "WeightedQuickUnionOOPAlgorithm"),
                 Arguments.of((IntFunction<?>)QuickUnionWithCompressionToRootAlgorithm::new, "QuickUnionWithCompressionToRootAlgorithm"),
-                Arguments.of((IntFunction<?>)QuickUnionWithCompressionToGrandparentAlgorithm::new, "QuickUnionWithCompressionToGrandparentAlgorithm")
+                Arguments.of((IntFunction<?>)QuickUnionWithCompressionToGrandparentAlgorithm::new, "QuickUnionWithCompressionToGrandparentAlgorithm"),
+                Arguments.of((IntFunction<?>)WeightedQuickUnionWithCompressionToRootAlgorithm::new, "WeightedQuickUnionWithCompressionToRootAlgorithm"),
+                Arguments.of((IntFunction<?>)WeightedQuickUnionWithCompressionToGrandparentAlgorithm::new, "WeightedQuickUnionWithCompressionToGrandparentAlgorithm")
         );
     }
 
@@ -80,8 +82,8 @@ class DynamicConnectivityAlgorithmsTest {
     @ParameterizedTest(name = "[{index}] - {1}")
     @MethodSource("getImplementations")
     void unionFind10(IntFunction<DynamicConnectivityAlgorithm> algorithmCreator, @SuppressWarnings("unused") String testName) {
-        try (Scanner source = openLocalFileAsScanner("DynamicConnectivity_10.txt");
-             Scanner result = openLocalFileAsScanner("DynamicConnectivity_10_result.txt")) {
+        try (Scanner source = openLocalFileWithScanner("DynamicConnectivity_10.txt");
+             Scanner result = openLocalFileWithScanner("DynamicConnectivity_10_result.txt")) {
             int numberNodes = source.nextInt();
             DynamicConnectivityAlgorithm algorithm = algorithmCreator.apply(numberNodes);
 
@@ -95,7 +97,7 @@ class DynamicConnectivityAlgorithmsTest {
         }
     }
 
-    private static Scanner openLocalFileAsScanner(String fileName) {
+    private static Scanner openLocalFileWithScanner(String fileName) {
         return new Scanner(new InputStreamReader(DynamicConnectivityAlgorithmsTest.class.getResourceAsStream(fileName)));
     }
 }
