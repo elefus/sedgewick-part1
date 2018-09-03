@@ -1,4 +1,4 @@
-package ru.spb.beavers.week1;
+package ru.spb.beavers.week1.lectures;
 
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -18,12 +18,12 @@ class DynamicConnectivityAlgorithmsTest {
 
     private static Stream<Arguments> getImplementations() {
         return Stream.of(
-                Arguments.of((IntFunction<?>)QuickUnionAlgorithm::new, "QuickUnionAlgorithm"),
-                Arguments.of((IntFunction<?>)QuickFindAlgorithm::new, "QuickFindAlgorithm"),
+                Arguments.of((IntFunction<?>) QuickUnionAlgorithm::new, "QuickUnionAlgorithm"),
+                Arguments.of((IntFunction<?>) QuickFindAlgorithm::new, "QuickFindAlgorithm"),
                 Arguments.of((IntFunction<?>)WeightedQuickUnionAlgorithm::new, "WeightedQuickUnionAlgorithm"),
                 Arguments.of((IntFunction<?>)WeightedQuickUnionOOPAlgorithm::new, "WeightedQuickUnionOOPAlgorithm"),
-                Arguments.of((IntFunction<?>)QuickUnionWithCompressionToRootAlgorithm::new, "QuickUnionWithCompressionToRootAlgorithm"),
-                Arguments.of((IntFunction<?>)QuickUnionWithCompressionToGrandparentAlgorithm::new, "QuickUnionWithCompressionToGrandparentAlgorithm"),
+                Arguments.of((IntFunction<?>) QuickUnionWithCompressionToRootAlgorithm::new, "QuickUnionWithCompressionToRootAlgorithm"),
+                Arguments.of((IntFunction<?>) QuickUnionWithCompressionToGrandparentAlgorithm::new, "QuickUnionWithCompressionToGrandparentAlgorithm"),
                 Arguments.of((IntFunction<?>)WeightedQuickUnionWithCompressionToRootAlgorithm::new, "WeightedQuickUnionWithCompressionToRootAlgorithm"),
                 Arguments.of((IntFunction<?>)WeightedQuickUnionWithCompressionToGrandparentAlgorithm::new, "WeightedQuickUnionWithCompressionToGrandparentAlgorithm")
         );

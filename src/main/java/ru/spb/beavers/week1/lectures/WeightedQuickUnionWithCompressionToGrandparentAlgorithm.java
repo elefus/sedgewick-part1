@@ -1,13 +1,13 @@
-package ru.spb.beavers.week1;
+package ru.spb.beavers.week1.lectures;
 
 import java.util.stream.IntStream;
 
-public class WeightedQuickUnionWithCompressionToRootAlgorithm implements DynamicConnectivityAlgorithm {
+public class WeightedQuickUnionWithCompressionToGrandparentAlgorithm implements DynamicConnectivityAlgorithm {
 
     private final int[] weights;
     private int[] nodes;
 
-    public WeightedQuickUnionWithCompressionToRootAlgorithm(int numberNodes) {
+    public WeightedQuickUnionWithCompressionToGrandparentAlgorithm(int numberNodes) {
         nodes = IntStream.range(0, numberNodes)
                          .toArray();
 
@@ -38,11 +38,10 @@ public class WeightedQuickUnionWithCompressionToRootAlgorithm implements Dynamic
     }
 
     private int root(int node) {
-        int parent = nodes[node];
-        if (node == parent) {
-            return node;
-        } else {
-            return nodes[node] = root(parent);
+        while (node != nodes[node]) {
+            nodes[node] = nodes[nodes[node]];
+            node = nodes[node];
         }
+        return node;
     }
 }

@@ -1,4 +1,4 @@
-package ru.spb.beavers.week1;
+package ru.spb.beavers.week1.lectures;
 
 import lombok.*;
 
